@@ -8,11 +8,11 @@ public class BondEnergies{
 	    if(name.equals("CO")){//C0 double bond in CO2
 		BE=799;
 	    }else if(name.equals("NO")){//N0 bond in NO2
-		BE=2*1;//Need to find value
+		BE=406;//Need to find value
 	    }else if(name.equals("HO")){//HO bond in H2O
 		BE=464+22.008;
 	    }else if(name.equals("OO")){//HALF of a bond in O2
-		BE=347/2;
+		BE=498/2;
 	    }else{
 		throw new IllegalArgumentException();
 	    }
@@ -66,15 +66,15 @@ public class BondEnergies{
 	    reactants.add(new Bond("OO"));
 	}
 	float retValue = 0;
-	System.out.println("Reactants");
+	//System.out.println("Reactants");
 	for(Bond m : reactants){
 	    retValue+=m.BE;
-	    System.out.println(m.name);
+	    //System.out.println(m.name);
 	}
-	System.out.println("Products");
+	//System.out.println("Products");
 	for(Bond m : products){
 	    retValue-=m.BE;
-	    System.out.println(m.name);
+	    //System.out.println(m.name);
 	}
 	if(doubled){
 	    retValue/=2;//To take into account doubling coefficients
@@ -117,12 +117,14 @@ public class BondEnergies{
 	String[] names = {"O2","CO2","H2O","NO2"};
 	if(molecules[0]>0){
 	    fuel+=" + ";
-	    if(molecules[0]==(int)molecules[0]){
-		fuel+=(int)molecules[0];
-	    }else{
-		fuel+=molecules[0];
+	    if(molecules[0]>1){
+		if(molecules[0]==(int)molecules[0]){
+		    fuel+=(int)molecules[0];
+		}else{
+		    fuel+=molecules[0];
+		}
+		fuel+=" ";
 	    }
-	    fuel+=" ";
 	    fuel+=names[0];
 	}
 	//fuel+=
@@ -130,12 +132,14 @@ public class BondEnergies{
 	for(int m = 1; m<molecules.length; m++){
 	    if(molecules[m]>0){
 		Products+=" + ";
-		if(molecules[m]==(int)molecules[m]){
-		    Products+=(int)molecules[m];
-		}else{
-		    Products+=molecules[m];
+		if(molecules[m]>1){
+		    if(molecules[m]==(int)molecules[m]){
+			Products+=(int)molecules[m];
+		    }else{
+			Products+=molecules[m];
+		    }
+		    Products+=" ";
 		}
-		Products+=" ";
 		Products+=names[m];
 	    }
 	}
