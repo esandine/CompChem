@@ -10,7 +10,7 @@ public class BondEnergies{
 	    }else if(name.equals("NO")){//N0 bond in NO2
 		BE=406;//Need to find value
 	    }else if(name.equals("HO")){//HO bond in H2O
-		BE=464+22.008;
+		BE=464.0+22.0080000;
 	    }else if(name.equals("OO")){//HALF of a bond in O2
 		BE=498/2;
 	    }else{
@@ -65,18 +65,20 @@ public class BondEnergies{
 	for(int o = 0; o<oxygens; o++){
 	    reactants.add(new Bond("OO"));
 	}
-	float retValue = 0;
+	double retValue = 0;
 	//System.out.println("Reactants");
 	for(Bond m : reactants){
 	    retValue+=m.BE;
 	    System.out.println(m.name);
 	    System.out.println(m.BE);
+	    System.out.println(retValue);
 	}
 	//System.out.println("Products");
 	for(Bond m : products){
 	    retValue-=m.BE;
 	    System.out.println(m.name);
 	    System.out.println(m.BE);
+	    System.out.println(retValue);
 	}
 	if(doubled){
 	    retValue/=2;//To take into account doubling coefficients

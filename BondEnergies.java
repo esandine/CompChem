@@ -69,16 +69,16 @@ public class BondEnergies{
 	//System.out.println("Reactants");
 	for(Bond m : reactants){
 	    retValue+=m.BE;
-	    System.out.println(m.name);
-	    System.out.println(m.BE);
-	    System.out.println(retValue);
+	    //System.out.println(m.name);
+	    //System.out.println(m.BE);
+	    //System.out.println(retValue);
 	}
 	//System.out.println("Products");
 	for(Bond m : products){
 	    retValue-=m.BE;
-	    System.out.println(m.name);
-	    System.out.println(m.BE);
-	    System.out.println(retValue);
+	    //System.out.println(m.name);
+	    //System.out.println(m.BE);
+	    //System.out.println(retValue);
 	}
 	if(doubled){
 	    retValue/=2;//To take into account doubling coefficients
