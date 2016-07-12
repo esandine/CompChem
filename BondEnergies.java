@@ -7,8 +7,8 @@ public class BondEnergies{
 	    name = s;
 	    if(name.equals("CO")){//C0 double bond in CO2
 		BE=799;
-	    }else if(name.equals("NO")){//N0 bond in NO2
-		BE=406;//Need to find value
+	    }else if(name.equals("NN")){//half of a NN bond in N2
+		BE=946/2;//Need to find value
 	    }else if(name.equals("HO")){//HO bond in H2O
 		BE=464.0+22.0080000;
 	    }else if(name.equals("OO")){//HALF of a bond in O2
@@ -52,8 +52,7 @@ public class BondEnergies{
 	    products.add(new Bond("CO"));
 	}
 	for(int n = 0; n<CHON[3];n++){
-	    products.add(new Bond("NO"));
-	    products.add(new Bond("NO"));
+	    products.add(new Bond("NN"));
 	}
 	for(int h = 0; h<CHON[1]; h++){
 	    products.add(new Bond("HO"));
@@ -61,7 +60,6 @@ public class BondEnergies{
 	int oxygens = -CHON[2];
 	oxygens+=2*CHON[0];
 	oxygens+=CHON[1]/2;
-	oxygens+=2*CHON[3];
 	for(int o = 0; o<oxygens; o++){
 	    reactants.add(new Bond("OO"));
 	}
@@ -92,7 +90,7 @@ public class BondEnergies{
 	    if(b.name.equals("CO")){
 		molecules[1]+=.5;
 	    }
-	    else if(b.name.equals("NO")){
+	    else if(b.name.equals("NN")){
 		molecules[3]+=.5;
 	    }else if(b.name.equals("HO")){
 		molecules[2]+=.5;
@@ -118,7 +116,7 @@ public class BondEnergies{
 	    }
 	}
 
-	String[] names = {"O2","CO2","H2O","NO2"};
+	String[] names = {"O2","CO2","H2O","N2"};
 	if(molecules[0]>0){
 	    fuel+=" + ";
 	    if(molecules[0]>1){
