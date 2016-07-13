@@ -164,6 +164,7 @@ public class BondEnergies{
     public static void main(String[] args){
 	int[]inputs = new int[4];
 	Scanner s1 = new Scanner(System.in);
+	System.out.println("Hess's Law Calculator");
 	System.out.println("Enter the number of Carbons");
 	inputs[0]=Integer.parseInt(s1.next());
 	System.out.println("Enter the number of Hydrogens");
