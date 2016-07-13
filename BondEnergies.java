@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 public class BondEnergies{
     private class Bond{
 	public String name;
@@ -152,9 +152,18 @@ public class BondEnergies{
     }
     public static void main(String[] args){
 	int[]inputs = new int[4];
-	for(int i = 0; i<inputs.length;i++){
-	    inputs[i]=Integer.parseInt(args[i]);
-	}
+	Scanner s1 = new Scanner(System.in);
+	System.out.println("Enter the number of Carbons");
+	inputs[0]=Integer.parseInt(s1.next());
+	System.out.println("Enter the number of Hydrogens");
+	inputs[1]=Integer.parseInt(s1.next());
+	System.out.println("Enter the number of Oxygens");
+	inputs[2]=Integer.parseInt(s1.next());
+	System.out.println("Enter the number of Nitrogens");
+	inputs[3]=Integer.parseInt(s1.next());
+	//for(int i = 0; i<inputs.length;i++){
+	//    inputs[i]=Integer.parseInt(args[i]);
+	//}
 	BondEnergies b = new BondEnergies(inputs);
 	System.out.println(b.eval());
     }
